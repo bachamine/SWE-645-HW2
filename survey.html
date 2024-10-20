@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Computer Science Department Presentation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://swe642-mod3-assignment1-part2.s3.us-east-2.amazonaws.com/w3.css" />
+  <link rel="stylesheet" href="https://swe642-mod3-assignment1-part2.s3.us-east-2.amazonaws.com/index.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
+</head>
+
+<body>
+  <!-- Links (sit on top) -->
+  <div class="top-menu">
+    <div class="top-row gmu-colors">
+      <div class="col2">
+        <a href="#"
+          class="top-button gmu-colors">HOME</a>
+      </div>
+      <div class="col2">
+        <a href="#"
+          class="top-button gmu-colors">ABOUT</a>
+      </div>
+      <div class="col2">
+        <a href="#"
+          class="top-button gmu-colors">VISIT</a>
+      </div>
+      <div class="col2">
+        <a href="#" class="top-button gmu-colors">SURVEY</a>
+      </div>
+    </div>
+  </div>
+  <!-- Header with image -->
+  <header class="bgimg" id="home"></header>
+
+  <!-- Add a background color and large text to the whole page -->
+  <div class="main-text">
+    <!-- Container -->
+    <div class="container">
+      <div class="content">
+        <h5 class="center">
+          <div>
+            <h3 class="tag gmu-colors">Hello! Welcome to SWE645 Survey</h3>
+          </div>
+        </h5>
+        <p>
+          It was great having you at GMU. We hope you enjoyed the visit!
+          Please use this survey to let us know how we did, also for a chance
+          to win a prize.
+        </p>
+        <p>We are hoping to see you again soon!</p>
+
+        <script type="text/javascript">
+
+          function valdiateRaffle() {
+            let data = document.forms["survey"]["inputVal"].value;
+            var tokens = data.split(",");
+            if (tokens.length < 10) {
+              alert("Make sure your raffle has at least 10 entries");
+              document.forms["survey"]["inputVal"].value = "";
+              return false;
+            }
+            var total = 0;
+            var max = 0;
+            for (var i = 0; i < tokens.length; i++) {
+              var num = tokens[i].trim();
+              if (!isNaN(num) && num.length > 0) {
+                var number = parseInt(num);
+                if (number < 1 || number > 100) {
+                  alert(
+                    "Make sure data entries are between 1 and 100 included"
+                  );
+                  document.forms["survey"]["inputVal"].value = "";
+                  return false;
+                } else {
+                  if (number > max) {
+                    max = number;
+                  }
+                  total += number;
+                }
+              } else {
+                alert(
+                  "Make sure all values in data are comma separated numbers" +
+                  num +
+                  "."
+                );
+                document.forms["survey"]["inputVal"].value = "";
+                return false;
+              }
+            }
+            for (var i = 0; i < tokens.length; i++) {
+              var num = tokens[i].trim();
+              var number = parseInt(num);
+              if (number == 41) {
+                document.getElementById("isWinner").innerHTML = "You won! 41 was the golden number! We will contact you soon to collect your prize!";
+                return true;
+              }
+            }
+            document.getElementById("isWinner").innerHTML = "Sorry! You didn't find the golden number. Better luck next time!";
+            return true;
+          }
+
+          function cancel() {
+            document.forms["survey"].value = "";
+          }
+        </script>
+
+        <form name="survey" onsubmit="return validateForm()">
+          <p>
+            <label>
+              First Name:
+              <span class="required">*</span>
+              <input autofocus name="first" type="text" size="25" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              Last Name:
+              <span class="required">*</span>
+              <input autofocus name="last" type="text" size="25" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              Street Address:
+              <span class="required">*</span>
+              <input name="street" type="text" size="50" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              City:
+              <span class="required">*</span>
+              <input name="city" type="text" size="25" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              State:
+              <span class="required">*</span>
+              <input name="state" type="text" size="25" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              Zip Code:
+              <span class="required">*</span>
+              <input id="zip" name="zip" type="text" size="10" onblur="validateZip2()" required/>
+              <span id="validateZip" class="validator"></span>
+            </label>
+          </p>
+          <p>
+            <label>
+              Phone Number:
+              <span class="required">*</span>
+              <input name="phone" type="text" size="15" placeholder="123-45-678" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              Email:
+              <span class="required">*</span>
+              <input name="email" type="text" size="25" placeholder="name@email.com" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              Date:
+              <span class="required">*</span>
+              <input name="date" type="text" placeholder="mm-dd-yyyy" required />
+            </label>
+          </p>
+
+          <p>
+            <strong>Things you liked:</strong>
+
+            <label>Students
+              <input name="thingsliked" type="checkbox" value="Students" />
+            </label>
+            <label>Location
+              <input name="thingsliked" type="checkbox" value="Location" />
+            </label>
+            <label>Campus
+              <input name="thingsliked" type="checkbox" value="Campus" />
+            </label>
+            <label>Atmosphere
+              <input name="thingsliked" type="checkbox" value="Atmosphere" />
+            </label>
+            <label>Dorm Rooms
+              <input name="thingsliked" type="checkbox" value="Dorm Rooms" />
+            </label>
+            <label>Sports
+              <input name="thingsliked" type="checkbox" value="Sports" />
+            </label>
+          </p>
+
+          <p>
+            <strong>How did you hear about us?</strong>
+
+            <label>Friends
+              <input name="hearabout" type="radio" value="Friends" />
+            </label>
+            <label>Television
+              <input name="hearabout" type="radio" value="Television" />
+            </label>
+            <label>Internet
+              <input name="hearabout" type="radio" value="Internet" />
+            </label>
+            <label>Other
+              <input name="hearabout" type="radio" value="Other" />
+            </label>
+          </p>
+
+          <label>How likely are you to recommend this school?</label>
+          <select name="likelihood">
+            <option value="vlikely">Very likely</option>
+            <option value="likely">Likely</option>
+            <option value="unlikeyly">Unlikely</option>
+          </select>
+
+          <p>
+          <p><label>This is your chance to win a prize! Enter below at least ten comma separated numbers
+              ranging from 1 through 100. If you pick a golden number, you will win a free movie ticket!</label></p>
+
+          <Strong>Raffle:</Strong>
+          <input id="inputVal" type="text" size="60" onblur="valdiateRaffle(this.value)" />
+          </p>
+
+          <div>
+            <span id="isWinner"></span>
+          </div>
+
+          <p>
+            <label>
+              Comments:<br />
+              <textarea name="comments" rows="4" cols="60"></textarea>
+            </label>
+          </p>
+
+          <p><span class="required">*</span>Required fields</p>
+          <p>
+            <input type="submit" value="Submit" />
+
+            <input type="reset" value="Cancel" onclick="cancel()" />
+
+          </p>
+        </form>
+      </div>
+    </div>
+    <!-- End page content -->
+  </div>
+</body>
+
+</html>
