@@ -18,8 +18,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Use sudo if Docker permission issue persists
-                    sh 'sudo docker build -t ${DOCKER_IMAGE} .'
+                    docker.build(env.DOCKER_IMAGE)
                 }
             }
         }
