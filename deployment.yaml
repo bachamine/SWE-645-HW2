@@ -4,8 +4,8 @@ metadata:
   annotations:
     deployment.kubernetes.io/revision: '1'
     field.cattle.io/publicEndpoints: >-
-      [{"addresses":["172.31.0.30"],"port":32297,"protocol":"TCP","serviceName":"default:hw2-cluster-deployment-nodeport","allNodes":true}]
-  creationTimestamp: '2024-10-27T19:11:50Z'
+      [{"addresses":["172.31.15.74"],"port":31287,"protocol":"TCP","serviceName":"default:hw2-cluster-deployment-nodeport","allNodes":true}]
+  creationTimestamp: '2024-10-28T19:11:35Z'
   generation: 2
   labels:
     workload.user.cattle.io/workloadselector: apps.deployment-default-hw2-cluster-deployment
@@ -67,7 +67,7 @@ metadata:
               f:terminationGracePeriodSeconds: {}
       manager: agent
       operation: Update
-      time: '2024-10-27T19:11:50Z'
+      time: '2024-10-28T19:11:36Z'
     - apiVersion: apps/v1
       fieldsType: FieldsV1
       fieldsV1:
@@ -102,11 +102,11 @@ metadata:
       manager: kube-controller-manager
       operation: Update
       subresource: status
-      time: '2024-10-27T19:11:54Z'
+      time: '2024-10-28T19:11:39Z'
   name: hw2-cluster-deployment
   namespace: default
-  resourceVersion: '2097'
-  uid: 98db0d4f-4393-4ae8-9c61-27ca380dfd7c
+  resourceVersion: '2164'
+  uid: d43ae52a-ac46-4156-a4ea-a52efe525118
 spec:
   progressDeadlineSeconds: 600
   replicas: 3
@@ -151,14 +151,14 @@ spec:
 status:
   availableReplicas: 3
   conditions:
-    - lastTransitionTime: '2024-10-27T19:11:54Z'
-      lastUpdateTime: '2024-10-27T19:11:54Z'
+    - lastTransitionTime: '2024-10-28T19:11:39Z'
+      lastUpdateTime: '2024-10-28T19:11:39Z'
       message: Deployment has minimum availability.
       reason: MinimumReplicasAvailable
       status: 'True'
       type: Available
-    - lastTransitionTime: '2024-10-27T19:11:50Z'
-      lastUpdateTime: '2024-10-27T19:11:54Z'
+    - lastTransitionTime: '2024-10-28T19:11:35Z'
+      lastUpdateTime: '2024-10-28T19:11:39Z'
       message: >-
         ReplicaSet "hw2-cluster-deployment-75f7bfdf6f" has successfully
         progressed.
